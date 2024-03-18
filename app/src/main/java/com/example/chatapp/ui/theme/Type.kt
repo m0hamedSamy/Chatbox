@@ -10,14 +10,14 @@ val Typography = Typography(
     displayLarge = TextStyle(
         color = PrimaryBlack,
         fontFamily = carosFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Medium,
         fontSize = 68.sp,
         lineHeight = 78.sp,
     ),
     displayMedium = TextStyle(
         color = PrimaryBlack,
         fontFamily = carosFamily,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Medium,
         fontSize = 40.sp,
         lineHeight = 50.sp,
     ),
