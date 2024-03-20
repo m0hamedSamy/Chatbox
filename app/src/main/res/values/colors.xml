@@ -8,4 +8,5 @@
     <color name="primary_white">#FFFFFFFF</color>
     <color name="primary_red">#FFF04A4C</color>
     <color name="lite_baby_blue">#FFF2F7FB</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
