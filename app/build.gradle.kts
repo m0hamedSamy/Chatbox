@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -49,6 +51,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -69,5 +75,15 @@ dependencies {
 
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
+
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // Dagger-Hilt
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    // Preferences DataStore
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
 
 }
