@@ -1,4 +1,4 @@
-package com.example.chatapp
+package com.example.chatapp.main.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,17 +10,17 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.chatapp.ui.theme.ChatAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen().apply {
-            setKeepOnScreenCondition {
-                viewModel.isLoading.value
-            }
+            setKeepOnScreenCondition { mainViewModel.isLoading.value }
         }
         setContent {
             ChatAppTheme {
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    App(startDestination =  mainViewModel.startDestination.value)
                 }
             }
         }
