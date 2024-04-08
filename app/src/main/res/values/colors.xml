@@ -2,11 +2,13 @@
 <resources>
     <color name="primary_green">#FF24786D</color>
     <color name="medium_green">#FF20A090</color>
-    <color name="primary_black">#FF001815</color>
+    <color name="greenish_black">#FF001815</color>
     <color name="primary_grey">#FF797C7B</color>
     <color name="lite_grey">#FFF3F6F6</color>
     <color name="primary_white">#FFFFFFFF</color>
     <color name="primary_red">#FFF04A4C</color>
     <color name="lite_baby_blue">#FFF2F7FB</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="eerie_black">#FF1A1A1A</color>
+    <color name="primary_vampire_black">#FF000E08</color>
 </resources>
