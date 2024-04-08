@@ -11,4 +11,6 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="eerie_black">#FF1A1A1A</color>
     <color name="primary_vampire_black">#FF000E08</color>
+    <color name="persian_indigo">#FF43116A</color>
+    <color name="maastricht_blue">#FF0A1832</color>
 </resources>
