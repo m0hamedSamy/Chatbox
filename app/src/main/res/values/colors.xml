@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!--    Green   -->
     <color name="primary_green">#FF24786D</color>
     <color name="medium_green">#FF20A090</color>
-    <color name="primary_black">#FF001815</color>
-    <color name="primary_grey">#FF797C7B</color>
-    <color name="lite_grey">#FFF3F6F6</color>
+
+<!--    Black   -->
+    <color name="greenish_black">#FF001815</color>
+    <color name="eerie_black">#FF1A1A1A</color>
+    <color name="primary_vampire_black">#FF000E08</color>
+
+<!--    Grey    -->
+    <color name="grey_1">#FF797C7B</color>
+    <color name="grey_2">#FFB9C1BE</color>
+    <color name="grey_3">#FFF3F6F6</color>
+
+<!--    Other   -->
     <color name="primary_white">#FFFFFFFF</color>
     <color name="primary_red">#FFF04A4C</color>
     <color name="lite_baby_blue">#FFF2F7FB</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="persian_indigo">#FF43116A</color>
+    <color name="maastricht_blue">#FF0A1832</color>
+
 </resources>
