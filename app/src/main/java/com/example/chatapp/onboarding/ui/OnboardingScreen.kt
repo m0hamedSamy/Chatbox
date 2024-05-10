@@ -17,8 +17,6 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
@@ -33,10 +31,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -60,8 +54,6 @@ fun OnboardingScreen(
     onSignUpWithFacebookClick: () -> Unit,
     onSignUpWithGoogleClick: () -> Unit
 ) {
-    val screenWidth: Int = LocalConfiguration.current.screenWidthDp
-    val screenHeight: Int = LocalConfiguration.current.screenHeightDp
     val context = LocalContext.current as ComponentActivity
 
     DisposableEffect(key1 = Unit){
@@ -81,25 +73,13 @@ fun OnboardingScreen(
                 .verticalScroll(rememberScrollState())
         ) {
             Box(
-                modifier = Modifier
-                    .requiredHeight(screenHeight.dp)
-                    .requiredWidth(screenWidth.dp)
-                    .blur(radius = 148.dp)
-                    .background(
-                        brush = Brush.linearGradient(
-                            0.0f to colorResource(id = R.color.eerie_black),
-                            0.2f to colorResource(id = R.color.eerie_black),
-                            0.3f to colorResource(id = R.color.maastricht_blue),
-                            0.4f to colorResource(id = R.color.persian_indigo).copy(alpha = .5f),
-                            0.6f to colorResource(id = R.color.persian_indigo),
-                            0.8f to colorResource(id = R.color.persian_indigo).copy(alpha = .5f),
-                            0.9f to colorResource(id = R.color.maastricht_blue),
-                            1.0f to colorResource(id = R.color.eerie_black),
-                            start = Offset(x = 0f, y = screenHeight * .24f),
-                            end = Offset(x = screenWidth * 1.2f, y = screenHeight * 1.1f)
-                        )
-                    )
-            )
+                modifier = Modifier.align(Alignment.TopCenter)
+            ) {
+                Image(painter = painterResource(
+                    id = R.drawable.ic_onboarding_bg_blur),
+                    contentDescription = null
+                )
+            }
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -179,7 +159,10 @@ fun OnboardingScreen(
                     )
                 )
                 Row(
-                    modifier = Modifier.padding(top = 46.dp),
+                    modifier = Modifier.padding(
+                        top = 46.dp,
+                        bottom = 40.dp
+                    ),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
