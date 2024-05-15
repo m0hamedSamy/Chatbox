@@ -3,26 +3,18 @@ package com.example.chatapp.onboarding.ui
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBars
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -44,7 +36,9 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.chatapp.R
-import com.example.chatapp.base.component.ChatboxButton
+import com.example.chatapp.base.component.CBAuthOptions
+import com.example.chatapp.base.component.CBButton
+import com.example.chatapp.base.component.CBSeparator
 import com.example.chatapp.ui.theme.ChatAppTheme
 
 @Composable
@@ -72,14 +66,11 @@ fun OnboardingScreen(
                 .background(colorResource(id = R.color.eerie_black))
                 .verticalScroll(rememberScrollState())
         ) {
-            Box(
-                modifier = Modifier.align(Alignment.TopCenter)
-            ) {
-                Image(painter = painterResource(
-                    id = R.drawable.ic_onboarding_bg_blur),
-                    contentDescription = null
-                )
-            }
+            Image(
+                modifier = Modifier.align(Alignment.TopCenter),
+                painter = painterResource(id = R.drawable.ic_onboarding_bg_blur),
+                contentDescription = null
+            )
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -119,37 +110,22 @@ fun OnboardingScreen(
                         lineHeight = 26.sp
                     )
                 )
-                Row(
+                CBAuthOptions(
                     modifier = Modifier.padding(top = 38.dp),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    IconItem(
-                        icon = R.drawable.ic_facebook_icon,
-                        contentDescription = stringResource(id = R.string.facebook_logo),
-                        onClick = onSignUpWithFacebookClick
-                    )
-                    IconItem(
-                        modifier = Modifier.padding(start = 22.dp),
-                        icon = R.drawable.ic_google_icon,
-                        contentDescription = stringResource(id = R.string.google_logo),
-                        onClick = onSignUpWithGoogleClick
-                    )
-                }
-                Row(
-                    modifier = Modifier.padding(top = 30.dp),
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Separator()
-                    Text(
-                        modifier = Modifier.padding(horizontal = 15.dp),
-                        text = stringResource(id = R.string.or).uppercase(),
-                        color = colorResource(id = R.color.grey_3),
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                    Separator()
-                }
-                ChatboxButton(
+                    onFacebookBtnClick = onSignUpWithFacebookClick,
+                    onGoogleBtnClick = onSignUpWithGoogleClick
+                )
+                CBSeparator(
+                    modifier = Modifier.padding(
+                        top = 30.dp,
+                        start = 6.dp,
+                        end = 6.dp
+                    ),
+                    text = stringResource(id = R.string.or).uppercase(),
+                    color = colorResource(id = R.color.grey_2).copy(alpha = .2f),
+                    textColor = colorResource(id = R.color.grey_3)
+                )
+                CBButton(
                     modifier = Modifier.padding(top = 30.dp),
                     onClick = onSignUpClick,
                     text = stringResource(id = R.string.sign_up_with_email),
@@ -183,44 +159,6 @@ fun OnboardingScreen(
                 }
             }
         }
-    }
-}
-
-
-@Composable
-private fun Separator() {
-    Spacer(
-        modifier = Modifier
-            .width(132.dp)
-            .height(1.dp)
-            .background(colorResource(id = R.color.grey_2).copy(alpha = .2f))
-    )
-}
-
-@Composable
-private fun IconItem(
-    modifier: Modifier = Modifier,
-    @DrawableRes icon: Int,
-    contentDescription: String,
-    onClick: () -> Unit
-) {
-    Box(
-        modifier = modifier
-            .size(48.dp)
-            .border(
-                width = 1.dp,
-                color = colorResource(id = R.color.grey_2),
-                shape = CircleShape
-            )
-            .clickable { onClick() }
-    ) {
-        Image(
-            modifier = Modifier
-                .align(Alignment.Center)
-                .padding(end = 1.dp),
-            painter = painterResource(id = icon),
-            contentDescription = contentDescription
-        )
     }
 }
 

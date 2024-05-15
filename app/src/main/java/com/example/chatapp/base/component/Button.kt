@@ -17,13 +17,13 @@ import androidx.compose.ui.unit.dp
 import com.example.chatapp.R
 
 @Composable
-fun ChatboxButton(
+fun CBButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
     text: String,
 ) {
-    ChatboxButton(
+    CBButton(
         modifier = modifier,
         onClick = onClick,
         enabled = enabled,
@@ -38,7 +38,7 @@ fun ChatboxButton(
 }
 
 @Composable
-fun ChatboxButton(
+fun CBButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
